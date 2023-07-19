@@ -1045,7 +1045,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6524851237771865083, guid: ad7b1500704ba561988275925e665d55, type: 3}
   m_PrefabInstance: {fileID: 8559773697318096126}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1053490102
+--- !u!114 &1053490104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1054,11 +1054,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053490100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f173aff244d4d8d4e80dec17457fb18f, type: 3}
+  m_Script: {fileID: 11500000, guid: af21f07758d9587d1b7e1865e720488f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 1000
-  playerBody: {fileID: 8559773697318096128}
+  controller: {fileID: 1053490105}
+  Speed: 12
+--- !u!143 &1053490105
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053490100}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1253162782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1699,6 +1725,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3078150819415267246, guid: ad7b1500704ba561988275925e665d55, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3298950680188606951, guid: ad7b1500704ba561988275925e665d55, type: 3}
       propertyPath: m_Constraints
       value: 80
@@ -1771,7 +1801,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3298950680188606951, guid: ad7b1500704ba561988275925e665d55, type: 3}
     m_RemovedGameObjects:
     - {fileID: 9129591856440454639, guid: ad7b1500704ba561988275925e665d55, type: 3}
     - {fileID: 825003439913046853, guid: ad7b1500704ba561988275925e665d55, type: 3}
@@ -1782,7 +1813,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3078150819415267246, guid: ad7b1500704ba561988275925e665d55, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1053490102}
+      addedObject: {fileID: 1053490105}
+    - targetCorrespondingSourceObject: {fileID: 3078150819415267246, guid: ad7b1500704ba561988275925e665d55, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1053490104}
     - targetCorrespondingSourceObject: {fileID: 3996288717305134052, guid: ad7b1500704ba561988275925e665d55, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8559773697318096132}
@@ -1804,5 +1838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f173aff244d4d8d4e80dec17457fb18f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
-  playerBody: {fileID: 1053490101}
+  PlayerBody: {fileID: 1053490101}
+  PlayerCamera: {fileID: 963194227}
+  MouseSensitivity: 100
+  IsInvertedMouse: 0

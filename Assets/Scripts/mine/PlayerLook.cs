@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerLook : MonoBehaviour
 {
     [Header("Setup")]
+    [Tooltip("Set to the players body, will rotate the game object left and right / Y axis")]
     public Transform PlayerBody = null;
+    [Tooltip("Attach to the main player camera will handle looking up and down")]
     public Camera PlayerCamera = null;
     [Header("Settings")]
     public float MouseSensitivity = 100f;
