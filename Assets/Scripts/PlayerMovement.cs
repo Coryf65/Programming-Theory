@@ -6,13 +6,17 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController controller;
+    [Header("Setup")]
+    public CharacterController Controller;
+    [Header("Settings")]
     public float Speed = 12f;
 
+    private Vector3 _velocity;
+    
     private void Start()
     {
         gameObject.AddComponent<CharacterController>();
-        controller = gameObject.GetComponent<CharacterController>();
+        Controller = gameObject.GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -24,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 movement = transform.right * x + transform.forward * z;
-        Debug.Log(movement);
-        controller.Move(movement * Time.deltaTime * Speed);
+        Controller.Move(movement * Time.deltaTime * Speed);
     }
 }
