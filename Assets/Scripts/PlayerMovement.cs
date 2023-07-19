@@ -34,11 +34,20 @@ public class PlayerMovement : MonoBehaviour
     {
         IsGrounded = CheckIfOnGround();
 
+        // add a falling speed
         if (IsGrounded && _velocity.y < 0)
         {
-            _velocity.y -= FallingSpeed;
+            _velocity.y = FallingSpeed;
         }
-        
+
+        HandlePlayerMovement();
+    }
+
+    /// <summary>
+    /// Control the player using WASD movement.
+    /// </summary>
+    private void HandlePlayerMovement()
+    {
         // left right / a + d
         float x = Input.GetAxis("Horizontal");
         // forward backwards / w + s
