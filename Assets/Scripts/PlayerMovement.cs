@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform GroundCheck;
     [Header("Settings")]
     public float Speed = 12f;
+    public float JumpHeight= 2f;
     public float GroundDistance = 0.4f;
     [Range(-20, 0)]
     public float FallingSpeed = -2f;
@@ -38,6 +39,12 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded && _velocity.y < 0)
         {
             _velocity.y = FallingSpeed;
+        }
+
+        if (Input.GetButtonDown("Jump") && IsGrounded)
+        {
+            // jump!
+            _velocity.y = JumpHeight;
         }
 
         HandlePlayerMovement();
