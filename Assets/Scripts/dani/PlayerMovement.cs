@@ -32,7 +32,7 @@ namespace dani
         private float threshold = 0.01f;
         public float maxSlopeAngle = 35f;
 
-        //Crouch & Slide
+        //Crouch & Slide 
         private Vector3 crouchScale = new Vector3(1, 0.5f, 1);
         private Vector3 playerScale;
         public float slideForce = 400;
