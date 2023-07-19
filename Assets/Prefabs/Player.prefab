@@ -145,12 +145,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6524851237771865083}
-  - component: {fileID: 3298950680188606951}
   - component: {fileID: 3840849956245606345}
   - component: {fileID: 3511706539255353487}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,35 +169,8 @@ Transform:
   - {fileID: 8120939675507337449}
   - {fileID: 1769683483592796259}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &3298950680188606951
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3078150819415267246}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 112
-  m_CollisionDetection: 1
 --- !u!143 &3840849956245606345
 CharacterController:
   m_ObjectHideFlags: 0
@@ -238,7 +210,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 3840849956245606345}
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  GroundCheck: {fileID: 1769683483592796259}
   Speed: 12
+  JumpHeight: 2
+  GroundDistance: 0.4
+  FallingSpeed: -2
+  IsGrounded: 0
+  IsDrawGizmo: 0
 --- !u!1 &3996288717305134052
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -20,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public float FallingSpeed = -2f;
     [Header("Info")]
     public bool IsGrounded;
+    public bool IsDrawGizmo = false;
 
     private Vector3 _velocity;
     private readonly float _gravity = -9.81f; // 9.81 meters2, earths gravity
@@ -80,6 +83,16 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CheckIfOnGround()
     {
-        return Physics.CheckSphere(GroundCheck.position, GroundDistance, GroundLayer);
+        return Physics.Raycast(GroundCheck.position, Vector3.down, GroundDistance);
+        //return Physics.CheckSphere(GroundCheck.position, GroundDistance, GroundLayer);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (IsDrawGizmo)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawRay(GroundCheck.position, Vector3.down);
+        }
     }
 }
