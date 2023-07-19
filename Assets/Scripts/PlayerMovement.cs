@@ -22,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
     public bool IsGrounded;
 
     private Vector3 _velocity;
-    private readonly float gravity = -9.81f; // 9.81 meters2, earths gravity
+    private readonly float _gravity = -9.81f; // 9.81 meters2, earths gravity
+    private float _doubleGravity = -2f;
     
     private void Start()
     {
@@ -43,10 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && IsGrounded)
         {
-            // jump!
-            _velocity.y = JumpHeight;
+            HandleJumping();
         }
-
         HandlePlayerMovement();
     }
 
@@ -65,10 +64,18 @@ public class PlayerMovement : MonoBehaviour
         Controller.Move(movement * Time.deltaTime * Speed);
         
         // adding gravity
-        _velocity.y += gravity * Time.deltaTime;
+        _velocity.y += _gravity * Time.deltaTime;
         
         // add gravity to the player
         Controller.Move(_velocity * Time.deltaTime);
+    }
+    
+    /// <summary>
+    /// Handle player jumping
+    /// </summary>
+    private void HandleJumping()
+    {
+        _velocity.y = Mathf.Sqrt(JumpHeight * _doubleGravity * _gravity);
     }
 
     private bool CheckIfOnGround()
